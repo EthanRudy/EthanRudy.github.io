@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Basic File Setup-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie-edge">
+
+        <!-- Tab Information-->
+        <title>AME 111 - Home</title>
+        <link rel="icon" href="./src/Floppy.png">
+
+        <!-- CSS Linkage-->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Yoinking a free google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
+    </head>
+
+    <body>
+        <header id="pg_head">
+            <div id="head_img_div">
+                <img id="head_img" src="./src/computer_circuit_board.jpg">
+            </div>
+            <nav id="head_nav">
+                <a class="head_nav_link" href="./index.html">Home</a>
+                <a class="head_nav_link" href="./posts.html">Posts</a>
+                <a class="head_nav_link" href="./algor.html">Algorithm of the Month</a>
+            </nav>
+        </header>
+        
+        <main id="pg_main">
+            <div class="post_r">
+                <h1 class="post_title">C++ BigInteger</h1>
+                <p class="post_text">
+                    I have spend an embarrassing amount of time on this <a href="https://github.com/EthanRudy/BigInt">project</a> over the last year.
+                    At this point I'm currently working on the 5th version lol.<br><br>
+                    The point of a library like BigInt is store store and manipulate arbitrary sized
+                    integers. I originally started working on this when working on, guess what, another project. yay!
+                    That other project, I can't share publicly but I'm working on something cool to show this off.
+                    The reason this exists is as follows, the language I use most often C++, is limited by it's
+                    number storage. Integers aka whole numbers are commonly stored in 
+                    <a href="https://medium.com/@luischaparroc/integer-numbers-storage-in-computer-memory-47af4b59009">this fashion</a>
+                    And because of this "hard" limit, you can only go so big. In my case, its about 19 digits or something.
+                    For one of my problems I had to add a couple hundred, 50 digit numbers, so thats where this all started.
+                    This library allows for an "infinitely" large number, you just need to have enough storage in memory.
+                    <br><br>
+                    Other languages have this functionality built in. Python is a good example, you can go as big as your
+                    computer will let you, straight out of the box. Other languages, like Java, you just have to import
+                    their package in your code. Its like getting a book from a library. Once you have the book, you have
+                    the knowledge inside. Java's BigInteger library is open and readable by the public, and version 3 was
+                    based off of it, but its way advanced for me to understand. Some true magic going on over there.
+
+                    <br><br>
+                    All prior 4 versions where based around structures that hold a list/array/string of digits. If you had
+                    the number 10, it would be represented as { 0, 1 }, it's "<a href="https://en.wikipedia.org/wiki/Endianness">backward</a>"
+                    for some simplicity reasons so I don't get even balder. I then program each operation. This includes
+                    arithmetic (+, -, *, / %), boolean (<, >, ==, !=), and some other quality of life ones.
+                    
+                    <br><br>
+                    This 5th version, and I feel stupid for not thinking of it sooner, is chunk based. Similarly as to how
+                    Minecraft loads its world in 16 x 16 chunks, I store my numbers in 9 digit chunks. (9 digits for the same balding reason)
+                    
+                    This is great for this reason. Lets say you don't use chunks and add 12 and 13. You have to add the 2 and 3, then the 1's.
+                    Which is ok, except when your computer is calculating the factorial of 1 million (which the new version 
+                    can do with ease. slay) This number has around 5.5 million digits. Multiplication as you learned in 
+                    like 2nd grade, is just some additions shifts for place. This method's operation count is ~n^2, n being the
+                    length of the number. Meaning on the last calculation alone, with this digit by digit, no chunk method, the
+                    computer would have to do 30,250,000,000,000 operations (30 trillion ish). Obv this isn't fast. But if
+                    we represent our number as chunks, we get to do 1/9 the operations when adding, and even less when muliplying.
+
+                    <br><br>
+                    Better yet, since we use chunks, if both numbers are less than 9 digits, we can add them normally, so we have
+                    good performance with small numbers too.
+
+                    <br><br>
+                    I profusely apoligize for this, that was a lot and I applaud you for reading all the way here. I really
+                    like stuff like this so I could go on and on.    
+                </p>
+            </div>
+
+            <div class="post_l">
+                <h1 class="post_title">OSHA Sort</h1>
+                <p class="post_text">
+                    <a href="https://github.com/EthanRudy/OSHA-Sort">OSHA Sort</a> is a complete joke. I was bored one day this summer.
+                    It's a simple, well known sorting algorithm, but with a twist. It's "labor law" compliant because I want to be on the
+                    robots good side when they take over lol. For every index that they program sorts, it gets to take a breather in terms
+                    of a one second break. Additionally, theres a small chance that it clocks out for its lunch break, and takes a chill pill
+                    for 30 whole minutes. It took like 20 minutes to make but I thinks its pretty funny.
+                
+                </p>
+            </div>
+
+            <div class="post_r">
+                <h1 class="post_title">Verlet Particle Simulation</h1>
+                <p class="post_text">
+                    This was my full obsession 2nd semester of last year. I wanted to learn some graphics libraries for C++ and landed on one
+                    called SFML. And that allowed me to create visuals for my programs, instead of the black and white, text only console I 
+                    normally work with.
+                    <br><br>
+                    It turned out alright, theres some things I want to improve on if I ever get around to rewriting it, specifically a really
+                    cool optimization.
+                    <br><br>
+                    The code itself is found <a href="https://github.com/EthanRudy/PhysEngine">here</a> if you want to decipher my code. It's
+                    currently held together with masking tape. In terms of what it does, it just simulates water particles in real time. Not too good though.
+                    The first try is found <a href="https://www.youtube.com/watch?v=rxioJbSxQ2U">here</a>. They were way too bouncy, the time scale was
+                    super off, over all not too convincing. The second version, demo <a href="https://www.youtube.com/watch?v=F2eG8HxBvr0">here</a> had
+                    some really beneficial optimizations, as well as being more lightweight on the memory. It could handle about 1000 objects in real time,
+                    about 10 times more than the prior, and could hit around 5000 objects and remain stable without becoming a microsoft powerpoint
+                    everytime it had to do math. I'm pretty proud of it, an explanation is found <a href="https://www.youtube.com/watch?v=rFGE34j8KTo">here</a>
+                </p>
+            </div>
+
+            <div id="footer">
+                <p>
+                    Placeholder for citations
+                </p>
+            </div>
+        </main>
+    </body>    
+    <script src="index.js"></script>
+</html>
