@@ -33,13 +33,30 @@
         </header>
         
         <main id="pg_main">
-            <p>Body</p>
+            <div id="about_div">
+                <h1 id="algor_title"> Algorithm of the Month </h1>
 
-
-
-
-            <div id="footer">
-                <p>Placeholder for citations</p>
+                <p id="algor_text">
+                    <!--To lazy to properly format-->
+                    The algorithm of the month, sticks with the numerical efficiency topics mentioned in the BigInteger post.
+                   
+                    The Karatsuba algorithm is a multiplication method with a higher efficiency compared to the grade school method.
+                    
+                    It splits numbers recursively into smaller ones, then assembles them with shifts for a reduced time 
+                    complexity.
+                    
+                    In my opinion it is also really simple to implement. The one downside is that it is relatively
+                    inefficient with 
+                    
+                    smaller numbers. Personally I have included grade school and karatsuba multiplication options
+                    in my BigInteger  
+                    
+                    implementations with a length check, so if a number is too short, it uses the classic method.
+                </p>
+                <img id="algor_img" src="./src/keyboard.png">
+                <p id="citation">
+                    "<a href="https://openclipart.org/detail/26499/keyboard-abnt2-pt-br">Keyboard ABNT2 Pt Br</a>" by <a href="https://openclipart.org/artist/Minduka">Miduka</a> is licensed under <a href="https://creativecommons.org/publicdomain/mark/1.0/">Public Domain</a>
+                </p>
             </div>
         </main>
 
