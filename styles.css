@@ -161,6 +161,8 @@
     object-fit: cover;
     border: 2px solid rgb(245, 222, 179);
     border-radius: 5px;
+    
+    margin-top: 50px;
 }
 
 .project_info_container{
@@ -175,8 +177,17 @@
 
 .project_info{
     margin-top: 5px;
-    margin-bottom: 50px;
     font-size: 1vw;
+}
+
+.project_wiki {
+    margin-top: 5px;
+    font-size: 1vw;
+    color: rgb(245, 222, 179);
+}
+
+.project_wiki:hover {
+    color: white;
 }
 
 
