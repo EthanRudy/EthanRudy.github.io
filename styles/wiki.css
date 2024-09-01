@@ -1,0 +1,11 @@
+* {
+    font-family: Consolas,monaco,monospace; 
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgb(30,30,30);
+
+    color: rgb(245, 222, 179);
+}

@@ -7,20 +7,18 @@
         <meta http-equiv="X-UA-Compatable" content="ie-edge">
 
         <title>Hey Hi Howdy!</title>
-        <link rel="icon" href="./media/icon.png">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="../media/icon.png">
+        <link rel="stylesheet" href="/styles/styles.css">
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <link rel="preload" as="image" href="hello_world.gif">
     </head>
     <body>
         <div class="main">
             <div class="content">
                 <div class="navigation_bar">
-                    <a class="nav_symbol" _ngcontent-opn-c5="" href="index.html"><span class="material-icons">keyboard_double_arrow_left</span></a>
-                    <a class="nav_link" href="about.html">about</a>
-                    <a class="nav_link" href="proj.html">projects</a>
+                    <a class="nav_symbol" _ngcontent-opn-c5="" href="/html/home"><span class="material-icons">keyboard_double_arrow_left</span></a>
+                    <a class="nav_link" href="/html/about">about</a>
+                    <a class="nav_link" href="/html/projects">projects</a>
                     <a class="nav_link" href="https://github.com/EthanRudy" target="_blank">github</a>
                     <a class="nav_link" href="https://www.linkedin.com/in/ethan-rudy" target="_blank">linkedin</a>
                 </div>
@@ -46,7 +44,7 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/OpenGL-RayCaster" target="_blank">
-                                <img class="project_image" src="./media/projects/raycaster.png">
+                                <img class="project_image" src="../media/projects/raycaster.png">
                             </a>
                         </div>
                         <div class="project_info_container">
@@ -60,13 +58,13 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/BigInt" target="_blank">
-                                <img class="project_image" src="./media/projects/BigInt.png">
+                                <img class="project_image" src="../media/projects/BigInt.png">
                             </a>
                         </div>
                         <div class="project_info_container">
                             <h1 class="project_title">BigInteger for C++</h1>
                             <p class="project_info">An implementation of BigInteger for C++, originally modeled after Java's but further iterated.</p>
-                            <!--<a class="project_wiki" href="/wiki/big_int.html">> Check out the documentation!</a>-->
+                            <a class="project_wiki" href="/wiki/big_int.html">> Check out the documentation!</a>
                         </div>
                     </div>
 
@@ -75,7 +73,7 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/RayTracer_RTW" target="_blank">
-                                <img class="project_image" src="./media/projects/raytracer.jpg">
+                                <img class="project_image" src="../media/projects/raytracer.jpg">
                             </a>
                         </div>
                         <div class="project_info_container">
@@ -107,7 +105,7 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/PhysEngine" target="_blank">
-                                <img class="project_image" src="./media/projects/particle_engine.png">
+                                <img class="project_image" src="../media/projects/particle_engine.png">
                             </a>
                         </div>
                         <div class="project_info_container">
@@ -120,7 +118,7 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/ProjectEuler_CPP" target="_blank">
-                                <img class="project_image" src="./media/projects/project_euler.png">
+                                <img class="project_image" src="../media/projects/project_euler.png">
                             </a>
                         </div>
                         <div class="project_info_container">
@@ -133,7 +131,7 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/OSHA-Sort" target="_blank">
-                                <img class="project_image" src="./media//projects/osha_sort.jpg">
+                                <img class="project_image" src="../media//projects/osha_sort.jpg">
                             </a>
                         </div>
                         <div class="project_info_container">
@@ -146,7 +144,7 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/Sorting_Visualizer" target="_blank">
-                                <img class="project_image" src="./media/projects/visualizer.png">
+                                <img class="project_image" src="../media/projects/visualizer.png">
                             </a>
                         </div>
                         <div class="project_info_container">
@@ -160,7 +158,7 @@
                     <div class="project">
                         <div class="project_image_container">
                             <a href="https://github.com/EthanRudy/HackBot" target="_blank">
-                                <img class="project_image" src="./media/projects/hack_bot.png">
+                                <img class="project_image" src="../media/projects/hack_bot.png">
                             </a>
                         </div>
                         <div class="project_info_container">
