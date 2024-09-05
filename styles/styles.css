@@ -191,6 +191,11 @@
 }
 
 
+.wiki_container {
+    color: rgb(245, 222, 179);
+}
+
+
 @media screen and (max-width:480px) {
     .navigation_bar{
         flex-direction: column;

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie-edge">
+
+        <title>Hey Hi Howdy!</title>
+        <link rel="icon" href="/media/icon.png">
+        <link rel="stylesheet" href="/styles/styles.css">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <div class="main">
+            <div class="content">
+                <div class="navigation_bar">
+                    <a class="nav_symbol" _ngcontent-opn-c5="" href="/index.html"><span class="material-icons">keyboard_double_arrow_left</span></a>
+                    <a class="nav_link" href="/about.html">about</a>
+                    <a class="nav_link" href="/projects.html">projects</a>
+                    <a class="nav_link" href="https://github.com/EthanRudy" target="_blank">github</a>
+                    <a class="nav_link" href="https://www.linkedin.com/in/ethan-rudy" target="_blank">linkedin</a>
+                </div>
+                
+                
+                <div class="wiki_container">
+                    <h1>TRZ 8-bit Architechture</h1>
+                    <h3>
+                        A "simple" turing complete 8-bit CPU built in LevelHead's game <a href="https://turingcomplete.game/" target="_blank">Turing Complete</a>
+                        Yes a game! As the player progresses through the levels, starting from one NAND gate, you design & build a turing complete computer, 
+                        along with a custom assembly language for "easy" programming.
+                    </h3>
+
+                    <h1>CPU Structure</h1>
+                    <h2>Program Memory & Counter</h2>
+                    <p>
+                        Program Memory is, for lack of a better word, array of bytes, 256 to be exact. As you can see, there is one input (blue) on the left, 
+                        and 4 outputs to the right (green). Each instruction is 32 bits. For clarity's sake 32 bits == 4 bytes == 2 words == 1 DWORD.
+                        <br><br>
+                        When executing an instruction the CPU reads 4 bytes at a time (the 4 highlighted numbers). The first byte is the opcode, the 
+                        2nd byte is Argument 1, the 3rd is  Argument 2, making the 4th and final byte the Destination. 
+                        <br><br>
+                        I'll be referencing these bytes using: opcode, arg1, arg2, & dest. 
+                        <br><br>
+                        When moving to the next instruction, we have to move 4 bytes, since that is the span of ALL instructions. You can learn more about
+                        my endeavors wiring some variable length instructions in the "Mistakes" section below.
+                    </p>
+                    <img src="/media/projects/trz/program_memory.png" alt="SC of program memory">
+
+                    <h2>Opcode Decoder</h2>
+                    <h3>
+                        In this section we will be focusing on the opcode decoder!
+                    </h3>
+                    <img src="/media/projects/trz/opcode.png">
+                    <p>
+                        The game is nice enough to provide me with the ability to label wires! I have labeled <i>most</i> of the super duper important ones.
+                        The first byte of every instruction is the opcode, meaning Operation Code. Operations include general arithmetic, stack functions, RAM
+                        accessing, jumps, function calling. It defines what the CPU will do with the following 3 bytes. 
+                        <br><br>
+                        My CPU has 25 opcodes! To differentiate
+                        25 unique values, I need to decode 5 bits. Yes we have some excess but theres always room to improve.
+                        <br><br>
+                        I might have lied about the 5 bits, I actual use 7 bits. The first 5 bits denote the operation, the 6th denotes if our operation is jump
+                        , and the 7th denotes if it's an immediate instruction. Fear not, I have an explanation!
+                        <br><br>
+                        From the first 5 bits, I use 17 unique combinations.
+                        <br>
+                        From the 6th bit, I read if it's a jump because our counter our program relies on will have to overriden, the COND component will have
+                        to be enabled, and our opcodes overlap! Check the OPCODE section for an explanation of that last part
+                        <br>
+                        From the 7th bit, I read if the instruction has an immediate value. An immediate value is a value directly passed by the programmer. 
+                        Any other values must be read from a register or game components. Just like the 6th bit, the 7th bit is what I call a modifier. 
+                        <br><br>
+                        For example:
+                        <br>
+                        If I want to add a register and immediate value, I would use the opcode for add (00000000), and toggle the immediate bit (7th), making
+                        (0100000). This in turn provides functionality for ALL instructions to have an immediate counterpart. I'm not saying that its a good choice,
+                        but arg2 could be an immediate if the programmer so chose.
+                        <br><br>
+                        24 of the opcodes, the 25th is special!
+                    </p>
+                    <img src="/media/projects/trz/opcode_tower.png">
+                    <p>
+                        Instructions on the right of the pipe "|", need the condition bit (6th) to be toggled on to function.
+                        <br><br>
+                        Below is a full opcode decoder, It could be minimized but I like seeing the wires activate as I debug.  
+                    </p>
+                    <img src="/media/projects/trz/opcode_decoder.png">
+
+
+                    <h2>Argument Decoders</h2>
+                    <h3>3 Arguments, 3 Decoders</h3>
+                    <img src="/media/projects/trz/argument_decoders.png">
+                    <p>
+                        As you can see above, we have a decoder for each of the remaining 3 arguments, as well as a switch on the 2nd argument. This switch
+                        is directly connected to the immediate bit and the ALU, bypassing the registers entirely, proving our immediate functionality.
+                        <br><br>
+                        You also may notice, we only use 4 bits of our 8. This is because I have only 11 registers, and didn't need to use the whole byte.
+                        For Register info, see the following section.
+                        <br><br>
+                        All 11 of the colorful wires link to a different register. Argument 1 & 2 link to the registers' load pin, meaning it will read data,
+                        and Destination links to the registers' save pin, meaning it will store data.
+                        <br><br>
+                        If you havent figured out by now, most opcodes perform an action using arg1 & arg2 and stores it at dest.
+                        <br><br>
+                        The white wires link to some game components. It is still a game so sometimes you have to send or receive some value from the backend.
+                        Arg1 & 2 link to input, Dest links to output. 
+                        <br><br>
+                        For example, if I wanted to double the input and send the result to the output immediately,
+                        i could say 'add, in, int, out'. The Argument decoders would unlock the input, send the data to the ALU to their respective lines, 
+                        the ALU performs the addition and sends it to the, dest line and the dest decoder unlocks the output. You can learn more about
+                        the "lines" in the "Registers" section.
+                    </p>
+
+                    <h2>Registers</h2>
+                    <h3>Wiring Hell</h3>
+                    <img src="/media/projects/trz/all_registers.png">
+                    <h3>
+                        All 11 registers (gray wire labels)
+                    </h3>
+                    <p>
+                        Before we get to far, I need to address the usage of the word "line." See all of those switches on the right? Those are linked to Arg1 & Arg2.
+                        Arg1 reads to the purple line, and Arg2 reads to the dark blue line. They go all over the place, but lets focus on just the ALU & COND.
+                        <br><br>
+                        The registers aren't too crazy but the final note I have is only Reg1-8 are for "general use."
+                        <br>
+                        That top register is the ZERO register, and it holds a constant value of 0, and can never be written to, only read from. Denoted 
+                        by "RO", read only. 
+                        <br>
+                        The same applies for the lowest 2, lo and hi. These are used to store the upper and lower bits of multiplication (8bit * 8bit == 16bit) and 
+                        the (quotient, remainder) pair of the divide/modulus operation. They are only written to when the ALU needs them, but can be read at any time.
+                    </p>
+
+
+                    <h2>ALU & COND</h2>
+                    <h2>"Game" Pieces</h2>
+                    <h2>Stacks, yes there is multiple!</h2>
+                    <h2>RAM</h2>
+
+                    <h1>Corresponding Assembly Language</h1>
+                    <h2>Opcodes</h2>
+                    <h2>Registers</h2>
+
+                    <h1>Mistakes</h1>
+                    <h2>Static Width Instruction Set</h2>
+                    <h2>Opcode Order</h2>
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+    </body>
+    <script src="index.js"></script>
+</html>
