@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Box Model Lecture Video</title>
+    <style>
+       
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+        body {
+            background-color: #ebdbb2;
+            font-family: "Playfair Display", serif;
+            color: black;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .container {
+            position: relative;
+            width: 700px;
+            background-color: #504945;
+            border-radius: 41px;
+            padding: 25px;
+        }
+
+        .cat_img_wrapper {
+            border-radius: 100px;
+            height: 500px;
+            width: 400px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .cat {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        nav > a button {
+            background-color: #689d6a;
+            width: 200px;
+            height: 75px;
+            border-radius: 25px;
+            border: none;
+            color: black;
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        a:hover button {
+            transition-property: all;
+            transition-duration: 500ms;
+
+            background-color: #8ec07c;
+            text-decoration: underline;
+            border-radius: 17px;
+            font-weight: 600;
+            color: #32302f;
+            letter-spacing: 1px;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <section>
+            <h2>The Culprit</h2>
+            <div class="cat_img_wrapper">
+                <img src="popsicle.jpg" class="cat" alt="The mischevious culprit" />
+            </div>
+        </section>
+        
+        <div class="content">
+            <section id="about">
+                <h2>Bro knows what he did (he doesn't form thoughts)</h2>
+                <p>Little criminal sat on my clean laundry last week, got hair all over my khakis</p>
+            </section>
+
+            <nav>
+                <a href="#about"><button>About</button></a>
+                <a href="#why"><button>Why</button></a>
+                <a href="#contact"><button>Contact</button></a>
+            </nav>
+        </div>
+    
+    </div>
+
+</body>
+
+</html>
