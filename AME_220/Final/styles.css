@@ -1,0 +1,78 @@
+/*Not me forgetting to use css 💀, its here now*/
+/*I apoligize, the cybersec concentration is attempting front end*/
+body {
+    font-family: 'Courier New', Courier, monospace;
+
+    text-align: center;
+    color: rgb(175, 100, 0);
+
+    margin: 0;
+    padding: 0;
+
+    background-color: rgb(50, 50, 50);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Yeah yeah i shouldn't global that but come on i wanna*/
+label {
+    text-decoration: underline;
+}
+
+input {
+    /*Yucky wucky default border*/
+    border: none;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+
+    background-color:rgb(175, 100, 0);
+    border: none;
+    border-radius: 5px;
+
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    transition-duration: 250ms;
+
+    color: #fbf1c7;
+    background-color:rgb(185, 110, 0);
+
+    border-radius: 3px;
+}
+
+#correct-btn {
+    background-color: rgb(10, 100, 10);
+    color: white
+}
+
+#incorrect-btn {
+    background-color: rgb(100, 10, 10);
+    color: white;
+}
+
+#flashcard {
+    background-color: rgb(200, 200, 200);
+    background-image: url("flashcard.jpg");
+
+    border-radius: 5px;
+
+    margin: auto;
+    text-align: center;
+
+    width: 30%;
+}
+
+#card-content {
+
+    margin: 10%;
+    padding: 10%;
+    color: black;
+}

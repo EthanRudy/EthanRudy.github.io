@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AME 220 Final</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <!-- Home Page -->
+        <div id="home-page">
+            <h1>Flashcard Study Tool</h1>
+            <button id="start-btn">Create Deck</button>
+        </div>
+
+        <!-- Flashcard Form -->
+        <div id="add-flashcards-page" class="hidden">
+            <h2>Please add a flashcard</h2>
+
+
+            <form id="flashcard-form">
+                <label for="question">Question:</label>
+                <input type="text" id="question" required>
+
+                <label for="answer">Answer:</label>
+                <input type="text" id="answer" required>
+
+                <button type="submit">Add Flashcard</button>
+            </form>
+
+
+            <button id="go-to-study-btn">Study Flashcards -></button>
+        </div>
+
+        <!-- Study Page -->
+        <div id="study-page" class="hidden">
+            <h2>Study Mode</h2>
+            <div id="flashcard">
+                <p id="card-content"></p>
+            </div>
+            <button id="flip-btn">Flip</button>
+            <button id="correct-btn">Correct</button>
+            <button id="incorrect-btn">Incorrect</button>
+            <button id="next-btn">Next -></button>
+        </div>
+
+        <!-- Results -->
+        <div id="results-page" class="hidden">
+            <h2>Results</h2>
+            <p id="results"></p>
+            <button id="reset-btn"><- Reset</button>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
